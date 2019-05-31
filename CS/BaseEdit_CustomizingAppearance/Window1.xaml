@@ -1,37 +1,40 @@
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="BaseEdit_CustomizingAppearance.Window1"
-        Title="Window1" Height="300" Width="300">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="130" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="32" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <dxe:TextEdit BorderThickness="0" EditValue="USA" ShowBorder="False"
-                      Grid.Column="1" Grid.Row="1">
-            <dxe:TextEdit.EditTemplate>
-                <ControlTemplate>
-                    <Border CornerRadius="7" BorderBrush="Orange" BorderThickness="3">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Margin="2" VerticalAlignment="Center"
-                                       Foreground="Gray" Text="Country:" />
-                            <TextBox Text="{Binding EditValue, Mode=TwoWay}"
-                                     Grid.Column="1" Margin="2"/>
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </dxe:TextEdit.EditTemplate>
-        </dxe:TextEdit>
-    </Grid>
+<Window
+    x:Class="BaseEdit_CustomizingAppearance.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+    xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
+    Title="Window1"
+    Width="300"
+    Height="300">
+
+    <dxe:TextEdit
+        Width="130"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        EditValue="USA"
+        ShowBorder="False">
+        <dxe:TextEdit.EditTemplate>
+            <ControlTemplate>
+                <Border
+                    BorderBrush="Orange"
+                    BorderThickness="3"
+                    CornerRadius="7">
+                    <DockPanel>
+                        <TextBlock
+                            Margin="2"
+                            VerticalAlignment="Center"
+                            Foreground="Gray"
+                            Text="Country:" />
+                        <TextBox
+                            Name="PART_Editor"
+                            Margin="2"
+                            Style="{dxi:ThemeResource {dxet:TextEditThemeKey ResourceKey=TextStyle}}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </dxe:TextEdit.EditTemplate>
+    </dxe:TextEdit>
+
 </Window>
