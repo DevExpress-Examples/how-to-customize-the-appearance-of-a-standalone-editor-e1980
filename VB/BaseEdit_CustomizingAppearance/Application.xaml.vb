@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports Microsoft.VisualBasic
+Imports System
 Imports System.Collections.Generic
 Imports System.Configuration
 Imports System.Data
@@ -11,6 +12,5 @@ Namespace BaseEdit_CustomizingAppearance
 	''' </summary>
 	Partial Public Class App
 		Inherits Application
-
 	End Class
 End Namespace
